@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { useNavigate } from "react-router-dom";
 
 export default function MediConnectDashboard() {
   const [activeTab, setActiveTab] = useState("Dashboard");
+  const navigate = useNavigate();
 
   const sidebarItems = [
     { name: "Dashboard", icon: "bi-house" },
     { name: "Patients", icon: "bi-people" },
     { name: "Appointments", icon: "bi-calendar-event" },
     { name: "Medicines", icon: "bi bi-capsule-pill" },
+    { name: "Prescriptions", icon: "bi-file-earmark-text" },
     { name: "Settings", icon: "bi-gear" },
   ];
 
@@ -17,6 +20,16 @@ export default function MediConnectDashboard() {
     { name: "Ibuprofen", prescriptions: 120 },
     { name: "Metformin", prescriptions: 100 },
   ];
+  const handleSidebarClick = (name) => {
+    setActiveTab(name);
+
+    if (name === "Medicines") {
+      navigate("/medicines"); // ✅ go to Medicines page
+    }
+    if (name === "Prescriptions") {
+      navigate("/prescriptions");
+    }
+  };
 
   return (
     <div
@@ -29,7 +42,11 @@ export default function MediConnectDashboard() {
         style={{ width: "280px", minHeight: "100vh" }}
       >
         {/* Doctor Profile */}
-        <div className="p-4 border-bottom" style={{ cursor: "pointer" }}>
+        <div
+          className="p-4 border-bottom"
+          style={{ cursor: "pointer" }}
+          onClick={() => navigate("/profile")}
+        >
           <div className="d-flex align-items-center">
             <div
               className="rounded-circle bg-primary d-flex align-items-center justify-content-center me-3"
@@ -54,7 +71,7 @@ export default function MediConnectDashboard() {
                       ? "btn-primary"
                       : "btn-outline-light text-dark border-0"
                   }`}
-                  onClick={() => setActiveTab(item.name)}
+                  onClick={() => handleSidebarClick(item.name)}
                   style={{
                     backgroundColor:
                       activeTab === item.name ? "#0d6efd" : "transparent",
