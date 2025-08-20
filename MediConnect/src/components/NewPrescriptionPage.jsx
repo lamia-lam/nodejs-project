@@ -3,17 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useNavigate } from "react-router-dom";
 
-export default function PrescriptionPage() {
+export default function NewPrescriptionPage() {
   const navigate = useNavigate();
-
-  const handleSubmit = () => {
-    // 👉 later you can add API call here
-    console.log("Prescription submitted!");
-
-    // ✅ Redirect to success page
-    navigate("/prescriptions/submit");
-  };
-
   const navItems = [
     { name: "Dashboard", path: "/dashboard" },
     { name: "Patients", path: "/patients" },
@@ -25,7 +16,7 @@ export default function PrescriptionPage() {
 
   return (
     <>
-      {/* 🔹 Top Navigation Bar */}
+      {/* Navbar (consistent with other pages) */}
       <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4 py-3">
         <div className="container-fluid">
           <span className="navbar-brand fw-bold">
@@ -61,43 +52,38 @@ export default function PrescriptionPage() {
         </div>
       </nav>
 
-      {/* 🔹 Main Content */}
+      {/* Main content */}
       <div className="container py-5">
         <h2 className="fw-bold mb-4">New Prescription</h2>
 
-        {/* Patient Info */}
-        <div className="mb-4">
-          <div className="mb-3">
+        <form>
+          {/* Patient Info */}
+          <div className="mb-4">
             <label className="form-label fw-semibold">Patient Name</label>
             <input
               type="text"
-              className="form-control"
-              placeholder="Enter patient’s full name"
+              className="form-control mb-3"
+              placeholder="Enter patient's full name"
             />
-          </div>
-          <div className="mb-4">
             <label className="form-label fw-semibold">Patient Phone</label>
             <input
               type="tel"
               className="form-control"
-              placeholder="Enter patient’s phone number"
+              placeholder="Enter patient's phone number"
             />
           </div>
-        </div>
 
-        {/* Medicine Info */}
-        <div className="mb-4">
-          <h4 className="fw-bolder mt-5 mb-3">Select Medicines</h4>
+          {/* Medicines */}
+          <h4 className="fw-bold mt-4 mb-3">Select Medicines</h4>
           <div className="mb-3">
             <label className="form-label fw-semibold">Medicine</label>
-            <select className="form-select">
+            <select className="form-select mb-2">
               <option>Select a medicine</option>
               <option>Paracetamol</option>
               <option>Ibuprofen</option>
               <option>Amoxicillin</option>
             </select>
           </div>
-
           <div className="mb-3">
             <label className="form-label fw-semibold">Dosage</label>
             <input
@@ -106,7 +92,6 @@ export default function PrescriptionPage() {
               placeholder="e.g., 500mg"
             />
           </div>
-
           <div className="mb-3">
             <label className="form-label fw-semibold">Duration</label>
             <input
@@ -115,24 +100,24 @@ export default function PrescriptionPage() {
               placeholder="e.g., 7 days"
             />
           </div>
-        </div>
 
-        {/* Notes */}
-        <div className="mb-4">
-          <label className="form-label fw-semibold">Notes</label>
-          <textarea
-            rows="4"
-            className="form-control"
-            placeholder="Add any additional notes for the patient"
-          ></textarea>
-        </div>
+          {/* Notes */}
+          <div className="mb-4">
+            <label className="form-label fw-semibold">Notes</label>
+            <textarea
+              rows="4"
+              className="form-control"
+              placeholder="Add any additional notes for the patient"
+            ></textarea>
+          </div>
 
-        {/* Submit Button */}
-        <div className="text-end">
-          <button className="btn btn-primary px-4" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
+          {/* Submit */}
+          <div className="text-end">
+            <button type="submit" className="btn btn-primary px-4">
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </>
   );

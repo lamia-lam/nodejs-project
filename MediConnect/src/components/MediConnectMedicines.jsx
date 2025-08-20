@@ -74,16 +74,18 @@ export default function MedicinesPage() {
       {/* Top Navigation - Desktop View */}
       <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom mb-4">
         <div className="container-fluid">
-          <a className="navbar-brand fw-bold" href="#">
+          <span className="navbar-brand fw-bold">
+            <i className="bi bi-triangle-fill me-2 text-primary"></i>
             MediConnect
-          </a>
+          </span>
           <div className="collapse navbar-collapse show">
             <ul className="navbar-nav me-auto">
               {[
                 "Dashboard",
                 "Patients",
-                "Prescriptions",
+                "Appointments",
                 "Medicines",
+                "Prescriptions",
                 "Settings",
               ].map((item, index) => (
                 <li className="nav-item" key={index}>
@@ -111,7 +113,7 @@ export default function MedicinesPage() {
               style={{ cursor: "pointer" }}
               onClick={() => navigate("/profile")}
             >
-              <i className="bi bi-person-circle fs-3 text-primary"></i>
+              <i className="bi bi-person-circle fs-4 text-primary"></i>
             </div>
           </div>
         </div>
@@ -122,7 +124,7 @@ export default function MedicinesPage() {
         <div>
           <h2 className="fw-bold">Medicines</h2>
           <p className="text-muted">
-            Browse and add medicines to prescriptions
+            Browse available medicines and their information
           </p>
         </div>
       </div>
@@ -138,17 +140,45 @@ export default function MedicinesPage() {
         </div>
         <div className="col-md-2">
           <select className="form-select">
-            <option>Category</option>
+            <option>All Categories</option>
+            <option>Antibiotics</option>
+            <option>Pain Relievers</option>
+            <option>Anti-inflammatory</option>
+            <option>Cardiovascular</option>
+            <option>Diabetes</option>
+            <option>Respiratory</option>
+            <option>Gastrointestinal</option>
+            <option>Vitamins & Supplements</option>
           </select>
         </div>
         <div className="col-md-2">
           <select className="form-select">
-            <option>Manufacturer</option>
+            <option>All Manufacturers</option>
+            <option>PharmaCorp</option>
+            <option>HealthSolutions</option>
+            <option>GlobalPharma</option>
+            <option>BioMed</option>
+            <option>InnovateMeds</option>
+            <option>CarePharma</option>
+            <option>LifeScience</option>
+            <option>MediCorp</option>
+            <option>VitalMeds</option>
+            <option>ApexPharma</option>
           </select>
         </div>
         <div className="col-md-2">
           <select className="form-select">
-            <option>Dosage</option>
+            <option>All Dosages</option>
+            <option>100mg</option>
+            <option>150mg</option>
+            <option>200mg</option>
+            <option>250mg</option>
+            <option>300mg</option>
+            <option>400mg</option>
+            <option>500mg</option>
+            <option>600mg</option>
+            <option>750mg</option>
+            <option>800mg</option>
           </select>
         </div>
       </div>
@@ -163,7 +193,6 @@ export default function MedicinesPage() {
               <th>Dosage</th>
               <th>Price</th>
               <th>Brochure</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -175,11 +204,6 @@ export default function MedicinesPage() {
                 <td>{med.price}</td>
                 <td>
                   <button className="btn btn-link p-0">View Brochure</button>
-                </td>
-                <td>
-                  <button className="btn btn-outline-primary btn-sm">
-                    Add to Prescription
-                  </button>
                 </td>
               </tr>
             ))}

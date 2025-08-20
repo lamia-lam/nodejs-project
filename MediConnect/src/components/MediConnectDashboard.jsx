@@ -29,6 +29,12 @@ export default function MediConnectDashboard() {
     if (name === "Prescriptions") {
       navigate("/prescriptions");
     }
+    if (name === "Patients") {
+      navigate("/patients");
+    }
+    if (name === "Appointments") {
+      navigate("/appointments");
+    }
   };
 
   return (
