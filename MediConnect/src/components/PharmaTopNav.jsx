@@ -9,9 +9,7 @@ export default function PharmaTopNav() {
 
   const navItems = [
     { label: "Dashboard", to: "/company" },
-    { label: "Prescriptions", to: "/company/prescriptions" },
     { label: "Medicines", to: "/company/medicines" },
-    { label: "Analytics", to: "/company/analytics" },
   ];
 
   return (
