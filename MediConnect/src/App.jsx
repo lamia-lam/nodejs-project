@@ -7,8 +7,12 @@ import ProfileSettings from "./components/ProfileSetting";
 import PrescriptionPage from "./components/PrescriptionPage";
 import PrescriptionSubmit from "./components/PrescriptionSubmit";
 import NewPrescriptionPage from "./components/NewPrescriptionPage";
-import PatientPage from "./components/PatientPage";
+import PatientPage from "./components/PatientsPage";
 import AppointmentsPage from "./components/AppointmentsPage";
+import PharmaDashboard from "./components/PharmaDashboard";
+import PharmaPrescriptions from "./components/PharmaPrescriptions";
+import PharmaMedicines from "./components/PharmaMedicines";
+import PharmaAnalytics from "./components/PharmaAnalytics";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function App() {
@@ -23,6 +27,10 @@ export default function App() {
       <Route path="/prescriptions/submit" element={<PrescriptionSubmit />} />
       <Route path="/patients" element={<PatientPage />} />
       <Route path="/appointments" element={<AppointmentsPage />} />
+      <Route path="/company" element={<PharmaDashboard />} />
+      <Route path="/company/prescriptions" element={<PharmaPrescriptions />} />
+      <Route path="/company/medicines" element={<PharmaMedicines />} />
+      <Route path="/company/analytics" element={<PharmaAnalytics />} />
     </Routes>
   );
 }

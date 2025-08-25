@@ -44,7 +44,7 @@ export default function MediConnectDashboard() {
     >
       {/* Sidebar */}
       <div
-        className="bg-light border-end"
+        className="bg-light border-end d-flex flex-column"
         style={{ width: "280px", minHeight: "100vh" }}
       >
         {/* Doctor Profile */}
@@ -94,6 +94,18 @@ export default function MediConnectDashboard() {
             ))}
           </ul>
         </nav>
+
+        {/* Logout button pinned to bottom */}
+        <div className="mt-auto p-3 border-top">
+          <button
+            className="btn w-100 text-start d-flex align-items-center p-3 btn-outline-danger border-0"
+            onClick={() => navigate("/")}
+            style={{ borderRadius: "8px" }}
+          >
+            <i className="me-3 bi bi-box-arrow-right" style={{ fontSize: "18px" }}></i>
+            <span className="fw-medium">Logout</span>
+          </button>
+        </div>
       </div>
 
       {/* Main Content */}
