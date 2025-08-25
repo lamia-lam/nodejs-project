@@ -13,6 +13,7 @@ import PharmaDashboard from "./components/PharmaDashboard";
 import PharmaPrescriptions from "./components/PharmaPrescriptions";
 import PharmaMedicines from "./components/PharmaMedicines";
 import PharmaAnalytics from "./components/PharmaAnalytics";
+import Registration from "./components/Registration";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
       <Route path="/company/prescriptions" element={<PharmaPrescriptions />} />
       <Route path="/company/medicines" element={<PharmaMedicines />} />
       <Route path="/company/analytics" element={<PharmaAnalytics />} />
+      <Route path="/register" element={<Registration />} />
     </Routes>
   );
 }
